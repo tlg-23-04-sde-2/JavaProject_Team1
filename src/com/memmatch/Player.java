@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class Player {
     private final Scanner scanner = new Scanner(System.in);
     private String name;
+    private int attempts;
 
     //Constructors
     public Player() {
@@ -29,7 +30,7 @@ public class Player {
 
     public int getGuess() {
         int guess = 0;
-
+        attempts++;
         boolean validInput = false;
         while (!validInput) {
             System.out.print("Please enter a number from [0-5]: ");
