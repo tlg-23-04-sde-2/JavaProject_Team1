@@ -1,24 +1,25 @@
 package com.memmatch;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 class Player {
+    private String name;
 
-    private int getGuess() {
-        int guess = 0;
-
-        boolean validInput = false;
-        while (!validInput) {
-            System.out.print("Please enter a number [0-5]: ");
-            String input = scanner.nextLine().trim();
-            if (input.matches("\\d")){
-                guess = Integer.parseInt(input);
-                if (1 <= guess && guess <= 5) {
-                    validInput = true;
-                }
-            }
-        }
-        return guess;
+    //Constructors
+    public Player( String name) {
+        setName(name);
     }
 
+    //business or action methods
+
+
+    // accessor methods
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
