@@ -1,14 +1,13 @@
 package com.memmatch;
 
-class Board {
-    playGame();         //controller
-    showIntro();        //controller
-    clearBoard();       //board method
-    setUpBoard();       //board method
-    while(!gameOver());  //player Method (if player life == 0) game over return true
-    drawBoard();        //board method
-    prompPlayerForGuess();       //player method -- if validGuess = true; nextLevel();
-    //win() false
-    reloadLevel();
-    win();              //controller
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+public class Board {
+    public static Board getInstance() {
+        Board board = new Board();
+        return board;
+    }
 }
