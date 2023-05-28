@@ -5,13 +5,19 @@ import java.util.Collections;
 
 public class Board<cards> {
     //properties
-    private int level = 1;
-    static int matchMade = 0;
-    Integer[] board;
-    boolean[] isFlipped;
+    private static int level = 1;
+    private static int matchMade = 0;
+
     private static ArrayList<Integer> cards = new ArrayList<>();
+    private static Integer[] board = new Integer[cards.size()];
+    private static boolean[] isFlipped = new boolean[cards.size()];
 
+    //accessor methods
+    public static int getLevel() {
+        return level;
+    }
 
+    //business methods
     private void getBoard() {
         if (level == 1) {
 
@@ -63,15 +69,48 @@ public class Board<cards> {
             cards.add(12);
         }
         Collections.shuffle(cards);
-
-
     }
 
     private static void update(){
-        while (matchMade < (cards.size()/2)){
-            showBoard(board);
-            int card1 = getGuess(scanner, board, isFlipped,"message to player");
+        Player player = new Player();
 
+
+        while (matchMade < (cards.size()/2)) {
+            showBoard(board);
+
+            int card1 = player.getGuess();
+            board[card1] = cards.get(card1);
+            isFlipped[card1] = true;
+            showBoard(board);
+
+            int card2 = player.getGuess();
+            board[card2] = cards.get(card2);
+            isFlipped[card2] = true;
+            showBoard(board);
+
+            if (board[card2].equals(board[card1])) {
+                System.out.println("You have found a match, keep it up.");
+                matchMade++;
+            } else {
+                board[card1] = Integer.valueOf(" ");
+                isFlipped[card1] = false;
+                board[card2] = Integer.valueOf(" ");
+                isFlipped[card2] = false;
+            }
+        }
+        if (matchMade >= (cards.size()/2)){
+            System.out.println("You have beat level:" + getLevel());
+            loadNextLevel();
+        }
+    }
+
+    private static void loadNextLevel() {
+        if (level < 3){
+            System.out.println("Now loading next level.");
+            level++;
+        }
+        else{
+            System.out.println("Congratulations you have beat the game.");
         }
     }
 
@@ -80,6 +119,4 @@ public class Board<cards> {
             System.out.println("| " + board[i] + " |");
         }
     }
-
-
 }
