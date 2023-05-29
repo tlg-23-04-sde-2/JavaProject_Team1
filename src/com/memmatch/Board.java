@@ -2,15 +2,22 @@ package com.memmatch;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.lang.Integer;
 
 public class Board<cards> {
     //properties
     private static int level = 1;
+    private static int pairs = 3;
     private static int matchMade = 0;
 
     private static ArrayList<Integer> cards = new ArrayList<>();
-    private static Integer[] board = new Integer[cards.size()];
+    private static Integer[] board;
     private static boolean[] isFlipped = new boolean[cards.size()];
+
+    //constructor - private to prevent outside instantiation.
+    public Board(){
+        //left blank intentionally
+    }
 
     //accessor methods
     public static int getLevel() {
@@ -18,7 +25,7 @@ public class Board<cards> {
     }
 
     //business methods
-    private void getBoard() {
+    private static void getCards() {
         if (level == 1) {
 
             cards.add(1);
@@ -27,6 +34,7 @@ public class Board<cards> {
             cards.add(2);
             cards.add(3);
             cards.add(3);
+            pairs = 3;
         }
         if (level == 2){
             cards.add(1);
@@ -41,6 +49,7 @@ public class Board<cards> {
             cards.add(5);
             cards.add(6);
             cards.add(6);
+            pairs = 6;
         }
         if (level == 3){
             cards.add(1);
@@ -67,41 +76,42 @@ public class Board<cards> {
             cards.add(11);
             cards.add(12);
             cards.add(12);
+            pairs = 12;
         }
         Collections.shuffle(cards);
+        board = new Integer[cards.size()];
     }
 
-    private static void update(){
+    public static void update(){
         Player player = new Player();
 
 
-        while (matchMade < (cards.size()/2)) {
-            showBoard(board);
+        while (matchMade < pairs) {
+            getCards();
+            show(board);
 
             int card1 = player.getGuess();
             board[card1] = cards.get(card1);
             isFlipped[card1] = true;
-            showBoard(board);
+            show(board);
 
             int card2 = player.getGuess();
             board[card2] = cards.get(card2);
             isFlipped[card2] = true;
-            showBoard(board);
+            show(board);
 
             if (board[card2].equals(board[card1])) {
                 System.out.println("You have found a match, keep it up.");
                 matchMade++;
             } else {
-                board[card1] = Integer.valueOf(" ");
+                board[card1] = 0;
                 isFlipped[card1] = false;
-                board[card2] = Integer.valueOf(" ");
+                board[card2] = 0;
                 isFlipped[card2] = false;
             }
         }
-        if (matchMade >= (cards.size()/2)){
-            System.out.println("You have beat level:" + getLevel());
-            loadNextLevel();
-        }
+        System.out.println("You have beat level:" + getLevel());
+        loadNextLevel();
     }
 
     private static void loadNextLevel() {
@@ -114,10 +124,11 @@ public class Board<cards> {
         }
     }
 
-    private static void showBoard(Integer[] board) {
+    public static void show(Integer[] board) {
         System.out.println("Current Level: " + getLevel());
-        for (int i = 0; i < board.length; i++){
-            System.out.println("| " + board[i] + " |");
+        for (int i = 0; i < board.length; i++) {
+            System.out.print("| " + board[i] + " |");
         }
+        System.out.println();
     }
 }
