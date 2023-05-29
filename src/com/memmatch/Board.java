@@ -115,6 +115,7 @@ public class Board<cards> {
     }
 
     private static void showBoard(Integer[] board) {
+        System.out.println("Current Level: " + getLevel());
         for (int i = 0; i < board.length; i++){
             System.out.println("| " + board[i] + " |");
         }
