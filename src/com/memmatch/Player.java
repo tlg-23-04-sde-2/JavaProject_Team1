@@ -35,6 +35,7 @@ public class Player {
         return guess;
     }
 
+    @SuppressWarnings("unused")
     public static int calculateScore() {
         //must be within 100-1
         int maxScore = 100;
