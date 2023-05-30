@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 public class Player {
     private final Scanner scanner = new Scanner(System.in);
-    private int attempts;
+    private static int attempts;
 
     public int promptForGuess(String[] board, boolean[] isFlipped) throws IllegalArgumentException {
         int guess = 0;
-        attempts++;
+
         boolean validInput = false;
 
         try {
@@ -22,6 +22,7 @@ public class Player {
                     System.out.println("The card you selected has already been flipped, please choose another card.");
                 } else {
                     validInput = true;
+                    attempts++;
                 }
             }
             return guess;
@@ -31,9 +32,9 @@ public class Player {
         return guess;
     }
 
-    public int calculateScore() {
+    public static int calculateScore() {
         int maxScore = 100;
-        return maxScore - this.attempts;
+        return maxScore - attempts;
     }
 
 }

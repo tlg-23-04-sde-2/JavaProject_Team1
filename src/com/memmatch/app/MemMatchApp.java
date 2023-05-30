@@ -4,6 +4,7 @@ import com.memmatch.Board;
 import com.memmatch.LeaderBoard;
 import com.memmatch.Player;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class MemMatchApp {
@@ -17,14 +18,32 @@ public class MemMatchApp {
         showLeaderBoard();
         String name = promptForName();
         showBoard();
-        updateBoard(name, Player.getScore());
+        updateBoard(name, Player.calculateScore());
         thankYou(name);
-        showLeaderBoard();
+        playAgain();
     }
 
 
     private void updateBoard(String name, int score) {
         leader.update(name, score);
+    }
+
+    private void playAgain() {
+        boolean validInput = false;
+
+        if(Board.gameFinished) {
+            while (!validInput) {
+                System.out.println("Would you like to play again? [Y/N]");
+                String input = scanner.nextLine().trim().toUpperCase(Locale.ROOT);
+                if (input.matches("Y")) {
+                    validInput = true;
+                    execute();
+                } else {
+                    showLeaderBoard();
+                    System.exit(0);
+                }
+            }
+        }
     }
 
     public static int promptForGuess() {
@@ -47,7 +66,7 @@ public class MemMatchApp {
 
 
     private void showBoard() {
-        Board.show();
+        Board.update();
     }
 
     private String promptForName() {
