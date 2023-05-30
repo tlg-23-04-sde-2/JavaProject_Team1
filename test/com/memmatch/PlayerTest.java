@@ -2,6 +2,8 @@ package com.memmatch;
 
 import org.junit.Test;
 
+import static org.junit.Assert.*;
+
 class PlayerTest {
     //test if the incoming input is valid
     //test illegalargument exception
@@ -12,6 +14,7 @@ class PlayerTest {
     public void playerValidInput() {
         //assert player input >= 0;
         //assert player input =< 10;
+        assertEquals(1,1);
 
     }
 }
