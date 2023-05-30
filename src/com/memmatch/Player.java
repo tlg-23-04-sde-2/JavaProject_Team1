@@ -4,11 +4,10 @@ import java.util.Scanner;
 
 public class Player {
     private final Scanner scanner = new Scanner(System.in);
-    private int attempts;
+    private static int attempts;
 
     public int promptForGuess(String[] board, boolean[] isFlipped) throws IllegalArgumentException {
         int guess = 0;
-        attempts++;
         boolean validInput = false;
 
         try {
@@ -24,6 +23,7 @@ public class Player {
                     validInput = true;
                 }
             }
+            attempts++;
             return guess;
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
@@ -31,9 +31,9 @@ public class Player {
         return guess;
     }
 
-    public int calculateScore() {
+    public static int calculateScore() {
+        //must be within 100-1
         int maxScore = 100;
-        return maxScore - this.attempts;
+        return maxScore - attempts;
     }
-
 }

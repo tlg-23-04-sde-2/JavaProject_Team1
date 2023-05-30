@@ -7,15 +7,15 @@ import java.util.Scanner;
 
  public class Memmatch {
      private final Scanner scanner1 = new Scanner(System.in);
-     private final Board board = Board.getInstance();
+     //private final Board board = Board.getInstance();
      Player player = new Player();
 
      public void execute() {
          //instantiate controller and say "go"
          welcome();
-         player.setName();
+        // player.setName();
          showBoard();
-         player.getGuess();
+        // player.getGuess();
      }
 
      public void welcome(){
