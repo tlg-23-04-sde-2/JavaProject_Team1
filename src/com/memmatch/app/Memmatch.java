@@ -5,7 +5,7 @@ import com.memmatch.Player;
 
 import java.util.Scanner;
 
- public class Controller {
+ public class Memmatch {
      private final Scanner scanner1 = new Scanner(System.in);
      private final Board board = Board.getInstance();
      Player player = new Player();

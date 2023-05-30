@@ -1,12 +1,11 @@
 package com.memmatch.client;
 
-import com.memmatch.app.Controller;
+import com.memmatch.app.Memmatch;
 
 class Main {
 
     public static void main(String[] args) {
-        //intantiate controller
-        Controller app = new Controller();
+        Memmatch app = new Memmatch();
         app.execute();
     }
 }
