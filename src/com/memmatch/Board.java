@@ -8,6 +8,7 @@ public class Board{
     private static int level = 1;
     private static int pairs = 3;
     private static int matchMade = 0;
+    public static boolean gameFinished = false;
 
 
     public static final ArrayList<String> cards = new ArrayList<>();
@@ -30,29 +31,25 @@ public class Board{
 
             cards.add("1");
             cards.add("1");
-            cards.add("2");
-            cards.add("2");
-            cards.add("3");
-            cards.add("3");
-            pairs = 3;
+//            cards.add("2");
+//            cards.add("2");
+//            cards.add("3");
+//            cards.add("3");
+            pairs = 1;
         }
         if (level == 2){
             cards.add("4");
             cards.add("4");
-            cards.add("5");
-            cards.add("5");
-            cards.add("6");
-            cards.add("6");
-            pairs = 6;
+//            cards.add("5");
+//            cards.add("5");
+            pairs = 2;
         }
         if (level == 3){
-            cards.add("7");
-            cards.add("7");
-            cards.add("8");
-            cards.add("8");
-            cards.add("9");
-            cards.add("9");
-            pairs = 9;
+            cards.add("6");
+            cards.add("6");
+//            cards.add("7");
+//            cards.add("7");
+            pairs = 3;
         }
         Collections.shuffle(cards);
         board = new String[cards.size()];
@@ -94,11 +91,13 @@ public class Board{
     private static void loadNextLevel() {
         if (level < 3){
             System.out.println("Now loading next level.");
+            matchMade = 0;
             level++;
             update();
         }
         else{
             System.out.println("Congratulations you have beat the game.");
+            gameFinished = true;
         }
     }
 

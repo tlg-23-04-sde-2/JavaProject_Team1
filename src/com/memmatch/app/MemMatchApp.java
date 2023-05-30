@@ -8,23 +8,27 @@ import java.util.Scanner;
 
 public class MemMatchApp {
     private final Scanner scanner = new Scanner(System.in);
+    private Board board = new Board();
 
     public void execute() {
         welcome();
         startGame();
+        playAgain();
     }
 
     private void playAgain() {
         boolean validInput = false;
-        while(!validInput){
-            System.out.println("Would you like to play again? [Y/N]");
-            String input = scanner.nextLine().trim().toUpperCase(Locale.ROOT);
-            if (input.matches("Y")){
-                validInput = true;
-                execute();
-            }
-            else{
-                System.exit(0);
+
+        if(board.gameFinished) {
+            while (!validInput) {
+                System.out.println("Would you like to play again? [Y/N]");
+                String input = scanner.nextLine().trim().toUpperCase(Locale.ROOT);
+                if (input.matches("Y")) {
+                    validInput = true;
+                    execute();
+                } else {
+                    System.exit(0);
+                }
             }
         }
     }
