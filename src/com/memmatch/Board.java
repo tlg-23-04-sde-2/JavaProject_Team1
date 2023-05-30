@@ -91,12 +91,15 @@ public class Board{
     private static void loadNextLevel() {
         if (level < 3){
             System.out.println("Now loading next level.");
+            System.out.println();
             matchMade = 0;
             level++;
             update();
         }
         else{
             System.out.println("Congratulations you have beat the game.");
+            level = 0;
+            cards.clear();
             gameFinished = true;
         }
     }

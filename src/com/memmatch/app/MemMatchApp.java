@@ -34,7 +34,7 @@ public class MemMatchApp {
     }
 
     private void startGame() {
-        Board.update();
+        board.update();
     }
 
     private void welcome() {
