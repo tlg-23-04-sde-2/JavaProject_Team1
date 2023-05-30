@@ -4,10 +4,11 @@ import java.util.Scanner;
 
 public class Player {
     private final Scanner scanner = new Scanner(System.in);
-
+    private int attempts;
 
     public int promptForGuess(String[] board, boolean[] isFlipped){
         int guess = 0;
+        attempts++;
         boolean validInput = false;
 
         while(!validInput) {
@@ -25,4 +26,10 @@ public class Player {
         }
         return guess;
     }
+
+    public int calculateScore() {
+        int maxScore = 100;
+        return maxScore - this.attempts;
+    }
+
 }
