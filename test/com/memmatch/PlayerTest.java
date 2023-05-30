@@ -14,7 +14,7 @@ class PlayerTest {
     public void playerValidInput() {
         //assert player input >= 0;
         //assert player input =< 10;
-        assertEquals(1,1);
+        assertEquals(1, 1);
 
     }
 }

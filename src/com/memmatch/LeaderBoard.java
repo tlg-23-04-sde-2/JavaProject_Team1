@@ -25,13 +25,12 @@ public class LeaderBoard implements Serializable {
         return leader;
     }
 
-    private LeaderBoard() {
+    private LeaderBoard() {  //no-opp
     }
 
     Map<String, Double> leaderMap = new LinkedHashMap<>();
-
-    public void update(String name, double score) {
-        leaderMap.put(name, score);
+    public void update(String name, double score) { //input from controller
+        leaderMap.put(name, score);    //adding the Map.
         save();
     }
 
@@ -47,18 +46,17 @@ public class LeaderBoard implements Serializable {
             System.out.println("--------------------");
 
             leaderMap.entrySet().stream()
-                    .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())) //descending order
+                    .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())) //descending order,
                     .forEach(entry -> System.out.printf("%-10s %-6s%n", entry.getKey(), entry.getValue()));
         }
     }
 
     private void save() {
         try (ObjectOutputStream newPlayer = new ObjectOutputStream(new FileOutputStream(leaderFile))) {
-            newPlayer.writeObject(this);
+            newPlayer.writeObject(this); //writing to the LeaderBoard.dat
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
 }
 

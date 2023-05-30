@@ -11,7 +11,7 @@ public class BoardTest {
     private static int level = 1;
 
     @Before
-    public void init(){
+    public void init() {
         cards = new ArrayList<>();
         cards.add("1");
         cards.add("1");

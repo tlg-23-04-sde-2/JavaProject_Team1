@@ -23,15 +23,13 @@ public class MemMatchApp {
         playAgain();
     }
 
-
     private void updateBoard(String name, int score) {
         leader.update(name, score);
     }
 
     private void playAgain() {
         boolean validInput = false;
-
-        if(Board.gameFinished) {
+        if (Board.gameFinished) {
             while (!validInput) {
                 System.out.println("Would you like to play again? [Y/N]");
                 String input = scanner.nextLine().trim().toUpperCase(Locale.ROOT);
@@ -48,7 +46,6 @@ public class MemMatchApp {
 
     public static int promptForGuess() {
         int guess = 0;
-
         boolean validGuess = false;
         while (!validGuess) {
             System.out.print("Please enter your guess: ");
@@ -60,10 +57,8 @@ public class MemMatchApp {
                 }
             }
         }
-
         return guess;
     }
-
 
     private void showBoard() {
         Board.update();
@@ -75,9 +70,11 @@ public class MemMatchApp {
         while (!validName) {
             System.out.println("Please Enter your Name: ");
             String inputName = scanner.nextLine().trim().toUpperCase();
-            if (inputName.length() >= 1) {
+            if (inputName.length() >= 2) {
                 validName = true;
                 playerName = inputName;
+            } else {
+                System.out.println(inputName + " Not a valid Name - Name Must Be At Least Two Characters");
             }
         }
         return playerName;
@@ -93,7 +90,6 @@ public class MemMatchApp {
         System.out.println("THANK YOU FOR PLAYING " + "'" + name.toUpperCase() + "'" + " TRY AGAIN FOR A HIGHER SCORE");
         System.out.println("==========================================================");
         System.out.println();
-
     }
 
     private void welcome() {
@@ -103,5 +99,4 @@ public class MemMatchApp {
         System.out.println("---------------------------------------------------------------------");
         System.out.println();
     }
-
 }
