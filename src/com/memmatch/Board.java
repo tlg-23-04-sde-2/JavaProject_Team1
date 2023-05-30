@@ -2,7 +2,6 @@ package com.memmatch;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.lang.Integer;
 
 public class Board{
     //properties
@@ -38,12 +37,6 @@ public class Board{
             pairs = 3;
         }
         if (level == 2){
-            cards.add("1");
-            cards.add("1");
-            cards.add("2");
-            cards.add("2");
-            cards.add("3");
-            cards.add("3");
             cards.add("4");
             cards.add("4");
             cards.add("5");
@@ -53,31 +46,13 @@ public class Board{
             pairs = 6;
         }
         if (level == 3){
-            cards.add("1");
-            cards.add("1");
-            cards.add("2");
-            cards.add("2");
-            cards.add("3");
-            cards.add("3");
-            cards.add("4");
-            cards.add("4");
-            cards.add("5");
-            cards.add("5");
-            cards.add("6");
-            cards.add("6");
             cards.add("7");
             cards.add("7");
             cards.add("8");
             cards.add("8");
             cards.add("9");
             cards.add("9");
-            cards.add("10");
-            cards.add("10");
-            cards.add("11");
-            cards.add("11");
-            cards.add("12");
-            cards.add("12");
-            pairs = 12;
+            pairs = 9;
         }
         Collections.shuffle(cards);
         board = new String[cards.size()];
@@ -91,12 +66,12 @@ public class Board{
         while (matchMade < pairs) {
             show(board);
 
-            int card1 = player.getGuess(board,isFlipped);
+            int card1 = player.promptForGuess(board,isFlipped);
             board[card1] = cards.get(card1);
             isFlipped[card1] = true;
             show(board);
 
-            int card2 = player.getGuess(board, isFlipped);
+            int card2 = player.promptForGuess(board, isFlipped);
             board[card2] = cards.get(card2);
             isFlipped[card2] = true;
             show(board);
@@ -113,12 +88,14 @@ public class Board{
             }
         }
         System.out.println("You have beat level:" + getLevel());
+        loadNextLevel();
     }
 
     private static void loadNextLevel() {
         if (level < 3){
             System.out.println("Now loading next level.");
             level++;
+            update();
         }
         else{
             System.out.println("Congratulations you have beat the game.");
