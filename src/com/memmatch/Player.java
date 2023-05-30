@@ -1,13 +1,13 @@
 package com.memmatch;
+
 import java.util.Scanner;
 
 public class Player {
     private final Scanner scanner = new Scanner(System.in);
-    private int attempts;
+
 
     public int promptForGuess(String[] board, boolean[] isFlipped){
         int guess = 0;
-        attempts++;
         boolean validInput = false;
 
         while(!validInput) {
@@ -24,11 +24,5 @@ public class Player {
             }
         }
         return guess;
-    }
-
-    public static int calculateScore(int attempts) {
-        int maxScore = 100;
-        int scorePerAttempt = maxScore / attempts;
-        return maxScore - (attempts - 1) * scorePerAttempt;
     }
 }
