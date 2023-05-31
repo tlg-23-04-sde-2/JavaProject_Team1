@@ -1,12 +1,15 @@
 package com.memmatch;
 
+import com.memmatch.app.MemMatchApp;
+
 import java.util.Scanner;
 
 public class Player {
-    private static final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
     private static int attempts;
 
-    public static int promptForGuess(String[] board, boolean[] isFlipped) throws IllegalArgumentException {
+
+    public int promptForGuess(String[] board, boolean[] isFlipped) throws IllegalArgumentException {
         int guess = 0;
         boolean validInput = false;
 
@@ -38,7 +41,7 @@ public class Player {
     @SuppressWarnings("unused")
     public static int calculateScore() {
         //must be within 100-1
-        int maxScore = 100;
+        int maxScore = 1;
         return maxScore - attempts;
     }
 }
