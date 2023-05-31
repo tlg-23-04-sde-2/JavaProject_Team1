@@ -65,7 +65,7 @@ public class Board{
         while (matchMade < pairs) {
             show(board);
 
-            int card1 = player.promptForGuess(board,isFlipped);
+            int card1 = player.promptForGuess(board, isFlipped);
             board[card1] = cards.get(card1);
             isFlipped[card1] = true;
             show(board);
