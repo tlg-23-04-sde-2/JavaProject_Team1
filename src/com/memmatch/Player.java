@@ -3,10 +3,10 @@ package com.memmatch;
 import java.util.Scanner;
 
 public class Player {
-    private final Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
     private static int attempts;
 
-    public int promptForGuess(String[] board, boolean[] isFlipped) throws IllegalArgumentException {
+    public static int promptForGuess(String[] board, boolean[] isFlipped) throws IllegalArgumentException {
         int guess = 0;
         boolean validInput = false;
 
