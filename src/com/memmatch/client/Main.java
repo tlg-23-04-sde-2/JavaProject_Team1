@@ -1,11 +1,11 @@
 package com.memmatch.client;
 
-import com.memmatch.app.Memmatch;
+import com.memmatch.app.MemMatchApp;
 
 class Main {
 
     public static void main(String[] args) {
-        Memmatch app = new Memmatch();
+        MemMatchApp app = new MemMatchApp();
         app.execute();
     }
 }
