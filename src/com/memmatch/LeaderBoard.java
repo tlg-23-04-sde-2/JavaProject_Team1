@@ -59,4 +59,3 @@ public class LeaderBoard implements Serializable {
         }
     }
 }
-

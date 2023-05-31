@@ -1,12 +1,14 @@
 package com.memmatch;
 
+import com.memmatch.app.MemMatchApp;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Board {
     //properties
     private static int level = 1;
-    private static int pairs = 3;
+    private static int pairs = 2;
     private static int matchMade = 0;
     public static boolean gameFinished = false;
 
@@ -31,25 +33,25 @@ public class Board {
 
             cards.add("1");
             cards.add("1");
-//            cards.add("2");
-//            cards.add("2");
+            cards.add("2");
+            cards.add("2");
 //            cards.add("3");
 //            cards.add("3");
-            pairs = 1;
+            pairs = 2;
         }
         if (level == 2) {
             cards.add("4");
             cards.add("4");
 //            cards.add("5");
 //            cards.add("5");
-            pairs = 2;
+            pairs = 3;
         }
         if (level == 3) {
             cards.add("6");
             cards.add("6");
 //            cards.add("7");
 //            cards.add("7");
-            pairs = 3;
+            pairs = 4;
         }
         Collections.shuffle(cards);
         board = new String[cards.size()];
@@ -84,8 +86,10 @@ public class Board {
                 isFlipped[card2] = false;
             }
         }
-        System.out.println("You have beat level:" + getLevel());
-        loadNextLevel();
+        if (matchMade == pairs) {
+            System.out.println("You have beat level:" + getLevel());
+            loadNextLevel();
+        }
     }
 
     private static void loadNextLevel() {
