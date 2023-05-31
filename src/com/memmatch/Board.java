@@ -1,5 +1,7 @@
 package com.memmatch;
 
+import com.memmatch.app.MemMatchApp;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -84,8 +86,10 @@ public class Board{
                 isFlipped[card2] = false;
             }
         }
-        System.out.println("You have beat level:" + getLevel());
-        loadNextLevel();
+        if (matchMade == pairs) {
+            System.out.println("You have beat level:" + getLevel());
+            loadNextLevel();
+        }
     }
 
     private static void loadNextLevel() {

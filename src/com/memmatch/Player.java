@@ -1,5 +1,7 @@
 package com.memmatch;
 
+import com.memmatch.app.MemMatchApp;
+
 import java.util.Scanner;
 
 public class Player {
@@ -39,7 +41,7 @@ public class Player {
     @SuppressWarnings("unused")
     public static int calculateScore() {
         //must be within 100-1
-        int maxScore = 100;
+        int maxScore = 1;
         return maxScore - attempts;
     }
 }

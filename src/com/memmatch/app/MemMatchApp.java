@@ -11,10 +11,11 @@ import java.util.Scanner;
 public class MemMatchApp {
     private final Scanner scanner = new Scanner(System.in);
     private final LeaderBoard leader = LeaderBoard.getInstance();
-    private Board board = new Board();
+    private final Board board = new Board();
 
     public void execute() {
         welcome();
+        rules();
         showLeaderBoard();
         String name = promptForName();
         startGame(); // gameBoard
@@ -23,10 +24,10 @@ public class MemMatchApp {
         playAgain(); // gameBoard
     }
 
-    private void playAgain() {
+    public void playAgain() {
         boolean validInput = false;
 
-        if(board.gameFinished) {
+        if(Board.gameFinished) {
             while (!validInput) {
                 System.out.println("Would you like to play again? [Y/N]");
                 String input = scanner.nextLine().trim().toUpperCase(Locale.ROOT);
@@ -82,5 +83,17 @@ public class MemMatchApp {
         System.out.println("W E L C O M E - T O - T H E - M E M M A T C H - A P P L I C A T I O N");
         System.out.println("---------------------------------------------------------------------");
         System.out.println();
+    }
+
+    private void rules(){
+        System.out.println("To play this game the rules are as follows: ");
+        System.out.println("Each level you will be presented with a set of cards with a varying number of pairs.");
+        System.out.println("each turn, the player will flip 2 cards individually to attempt to match these pairs.");
+        System.out.println("If a match is made, the cards will remain face up.");
+        System.out.println("If a match is not made, then the cards will return to being face down.");
+        System.out.println("Once all pairs in the set are found, you will progress to the next level.");
+        System.out.println("Each player will be start with 100 points, every attempt taken to match a pair will subtract from the 100.");
+        System.out.println("Once the game is completed, the remainder of the 100 will be saved to the leaderboard as your score.");
+
     }
 }

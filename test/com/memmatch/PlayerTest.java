@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-class PlayerTest {
+public class PlayerTest {
     //test if the incoming input is valid
     //test illegalargument exception
     //test that the score stays within the range of 100 to 1
@@ -15,6 +15,5 @@ class PlayerTest {
         //assert player input >= 0;
         //assert player input =< 10;
         assertEquals(1, 1);
-
     }
 }
