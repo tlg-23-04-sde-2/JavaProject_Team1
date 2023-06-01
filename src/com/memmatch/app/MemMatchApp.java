@@ -19,7 +19,7 @@ public class MemMatchApp {
         showLeaderBoard();
         String name = promptForName();
         startGame(); // gameBoard
-       // updateLeaderBoard(name, Player.calculateScore());
+        updateLeaderBoard(name, Player.calculateScore());
         thankYou(name);
         playAgain(); // gameBoard
     }

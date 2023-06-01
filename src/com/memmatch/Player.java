@@ -6,7 +6,6 @@ public class Player {
     static final String INVALID_INPUT_MESSAGE = "Invalid Input";
     private final Scanner scanner = new Scanner(System.in);
     private int attempts;
-    private String name;
 
     public int promptForGuess(String[] board, boolean[] isFlipped) throws IllegalArgumentException {
         int guess = 0;
