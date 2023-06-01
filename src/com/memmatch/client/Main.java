@@ -5,7 +5,7 @@ import com.memmatch.app.MemMatchApp;
 class Main {
 
     public static void main(String[] args) {
-        //intantiate controller
+        //instantiate controller
         MemMatchApp app = new MemMatchApp();
         app.execute();
     }

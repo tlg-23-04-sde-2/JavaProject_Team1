@@ -11,6 +11,7 @@ public class Board{
     private static int pairs = 2;
     private static int matchMade = 0;
     public static boolean gameFinished = false;
+    public static Player player = new Player();
 
 
     public static final ArrayList<String> cards = new ArrayList<>();
@@ -59,7 +60,6 @@ public class Board{
     }
 
     public static void update(){
-        Player player = new Player();
         getCards();
 
         while (matchMade < pairs) {

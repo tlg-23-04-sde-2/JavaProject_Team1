@@ -21,6 +21,7 @@ public class MemMatchApp {
         startGame(); // gameBoard
         updateLeaderBoard(name, Player.calculateScore());
         thankYou(name);
+        showLeaderBoard();
         playAgain(); // gameBoard
     }
 
