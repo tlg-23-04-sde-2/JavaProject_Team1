@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 
 public class MemMatchApp {
+    static final String INVALID_INPUT_MESSAGE = "Invalid Input";
     private final Scanner scanner = new Scanner(System.in);
     private final LeaderBoard leader = LeaderBoard.getInstance();
     private final Board board = new Board();
@@ -46,7 +47,7 @@ public class MemMatchApp {
         board.update();
     }
 
-    private String promptForName() {
+    public String promptForName() {
         String playerName = null;
         boolean validName = false;
         while (!validName) {
