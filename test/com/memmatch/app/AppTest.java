@@ -24,7 +24,8 @@ public class AppTest {
         PrintStream outPut = new PrintStream(captured);
         System.setOut(outPut);
         MemMatchApp player = new MemMatchApp();
-        player.promptForName();
+        String selection = player.promptForName();
+        assertNull(selection);
         String displayedText = captured.toString(StandardCharsets.UTF_8);
         assertTrue(displayedText.contains(MemMatchApp.INVALID_INPUT_MESSAGE));
     }
@@ -39,7 +40,8 @@ public class AppTest {
         PrintStream outPut = new PrintStream(captured);
         System.setOut(outPut);
         MemMatchApp player = new MemMatchApp();
-        player.promptForName();
+        String selection = player.promptForName();
+        assertNull(selection);
         String displayedText = captured.toString(StandardCharsets.UTF_8);
         assertTrue(displayedText.contains(MemMatchApp.INVALID_INPUT_MESSAGE));
     }

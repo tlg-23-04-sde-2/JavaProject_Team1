@@ -28,6 +28,7 @@ public class Player {
             } catch (IllegalArgumentException e) {
                 System.out.println(INVALID_INPUT_MESSAGE);
             }
+
         }
         return guess;
     }
@@ -37,4 +38,5 @@ public class Player {
         int maxScore = 100;
         return maxScore - attempts;
     }
+
 }

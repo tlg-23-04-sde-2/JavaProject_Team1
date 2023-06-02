@@ -5,13 +5,12 @@ import com.memmatch.app.MemMatchApp;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Board{
+public class Board {
     //properties
     private static int level = 1;
     private static int pairs = 2;
     private static int matchMade = 0;
     public static boolean gameFinished = false;
-    public static Player player = new Player();
 
 
     public static final ArrayList<String> cards = new ArrayList<>();
@@ -19,7 +18,7 @@ public class Board{
     public static boolean[] isFlipped;
 
     //constructor - private to prevent outside instantiation.
-    public Board(){
+    public Board() {
         //left blank intentionally
     }
 
@@ -40,14 +39,14 @@ public class Board{
 //            cards.add("3");
             pairs = 2;
         }
-        if (level == 2){
+        if (level == 2) {
             cards.add("4");
             cards.add("4");
 //            cards.add("5");
 //            cards.add("5");
             pairs = 3;
         }
-        if (level == 3){
+        if (level == 3) {
             cards.add("6");
             cards.add("6");
 //            cards.add("7");
@@ -59,7 +58,8 @@ public class Board{
         isFlipped = new boolean[cards.size()];
     }
 
-    public static void update(){
+    public static void update() {
+        Player player = new Player();
         getCards();
 
         while (matchMade < pairs) {
@@ -93,14 +93,13 @@ public class Board{
     }
 
     private static void loadNextLevel() {
-        if (level < 3){
+        if (level < 3) {
             System.out.println("Now loading next level.");
             System.out.println();
             matchMade = 0;
             level++;
             update();
-        }
-        else{
+        } else {
             System.out.println("Congratulations you have beat the game.");
             level = 0;
             cards.clear();

@@ -36,10 +36,12 @@ public class LeaderBoard implements Serializable {
 
     public void show() {
         if (leaderMap.isEmpty()) {
+            System.out.println();
             System.out.println("There are currently no rankings to show");
             System.out.println("========================================");
             System.out.println();
         } else {
+            System.out.println();
             System.out.println("LEADER BOARD");
             System.out.println("============\n");
             System.out.printf("%-10s %-6s%n", "Name", "Score");
@@ -59,3 +61,5 @@ public class LeaderBoard implements Serializable {
         }
     }
 }
+
+
