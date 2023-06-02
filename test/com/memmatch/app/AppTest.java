@@ -3,6 +3,7 @@ package com.memmatch.app;
 import com.memmatch.Player;
 import org.junit.Test;
 
+import java.awt.datatransfer.StringSelection;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -15,7 +16,7 @@ import static org.junit.Assert.*;
 public class AppTest {
 
     @Test(expected = IllegalArgumentException.class)
-    public void promptForName_ShouldPrintThatInputIsNotValidAndToEntervalidName_whenInputIs12Characters() {
+    public void promptForName_ShouldPrintThatInputIsNotValidAndToEnterValidName_whenInputIs12Characters() {
 
         String userInput = "christopherr\n";
         InputStream input = new ByteArrayInputStream(userInput.getBytes(StandardCharsets.UTF_8));
@@ -30,7 +31,7 @@ public class AppTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void promptForName_ShouldPrintThatInputIsNotValidAndToEntervalidName_whenInputIs1Character() {
+    public void promptForName_ShouldPrintThatInputIsNotValidAndToEnterValidName_whenInputIs1Character() {
 
         String userInput = "r\n";
         InputStream input = new ByteArrayInputStream(userInput.getBytes(StandardCharsets.UTF_8));
