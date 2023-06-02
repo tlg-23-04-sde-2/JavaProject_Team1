@@ -60,7 +60,7 @@ public class MemMatchApp {
                 validName = true;
                 playerName = inputName;
             } else {
-                throw new IllegalArgumentException(inputName + " Not a valid Name - Name Must Be At Least Two Characters" + MIN_LENGTH + " and " + MAX_LENGTH + "characters.");
+                System.out.println(inputName + " Not a valid Name - Name must be between " + MIN_LENGTH + " and " + MAX_LENGTH + " characters.");
             }
         }
         return playerName;
