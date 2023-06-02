@@ -9,9 +9,13 @@ import java.util.Scanner;
 
 
 public class MemMatchApp {
+    static final String INVALID_INPUT_MESSAGE = "Invalid Input";
     private final Scanner scanner = new Scanner(System.in);
     private final LeaderBoard leader = LeaderBoard.getInstance();
     private final Board board = new Board();
+    private final int MIN_LENGTH = 2;
+    private final int MAX_LENGTH = 11;
+
 
     public void execute() {
         welcome();
@@ -21,6 +25,7 @@ public class MemMatchApp {
         startGame(); // gameBoard
        // updateLeaderBoard(name, Player.calculateScore());
         thankYou(name);
+        showLeaderBoard();
         playAgain(); // gameBoard
     }
 
@@ -45,17 +50,17 @@ public class MemMatchApp {
         board.update();
     }
 
-    private String promptForName() {
+    public String promptForName() {
         String playerName = null;
         boolean validName = false;
         while (!validName) {
             System.out.println("Please Enter your Name: ");
             String inputName = scanner.nextLine().trim().toUpperCase();
-            if (inputName.length() >= 2) {
+            if (inputName.length() >= MIN_LENGTH && inputName.length() <= MAX_LENGTH) {
                 validName = true;
                 playerName = inputName;
             } else {
-                System.out.println(inputName + " Not a valid Name - Name Must Be At Least Two Characters");
+                System.out.println(inputName + " Not a valid Name - Name must be between " + MIN_LENGTH + " and " + MAX_LENGTH + " characters.");
             }
         }
         return playerName;
